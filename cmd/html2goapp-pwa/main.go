@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -20,7 +21,7 @@ func main() {
 
 	// Parse the flags
 	serve := flag.Bool("serve", false, "Serve the app instead of building it")
-	laddr := flag.String("laddr", "0.0.0.0:21255", "Address to listen on when serving the app")
+	port := flag.String("port", "21255", "port to listen on when serving the app")
 	dist := flag.String("dist", "out/pwa/web", "Directory to build the app to")
 	prefix := flag.String("prefix", "/html2goapp", "Prefix to build the app for")
 
@@ -59,9 +60,9 @@ func main() {
 
 	// Serve if specified
 	if *serve {
-		log.Println("Listening on", *laddr)
+		log.Printf("Listening on: http://localhost:%s\n", *port)
 
-		if err := http.ListenAndServe(*laddr, h); err != nil {
+		if err := http.ListenAndServe(fmt.Sprintf(":%s", *port), h); err != nil {
 			log.Fatal("could not serve:", err)
 		}
 
