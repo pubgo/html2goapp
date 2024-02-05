@@ -1,2 +1,4 @@
 web/*.wasm
 out
+/vendor
+.idea

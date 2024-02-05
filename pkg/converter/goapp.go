@@ -2,7 +2,6 @@ package converter
 
 import (
 	"fmt"
-	"os"
 	"strconv"
 	"strings"
 
@@ -259,11 +258,6 @@ func ConvertHTMLToComponent(
 		Params(Qual(goAppPkg, "UI")).
 		// Generated statements
 		Block(Return(statements))
-
-		// Format source code
-	if err := os.Setenv("GOFUMPT_SPLIT_LONG_LINES", "on"); err != nil {
-		return "", err
-	}
 
 	out, err := format.Source([]byte(fmt.Sprintf("%#v", src)), format.Options{})
 	if err != nil {

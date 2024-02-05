@@ -1,12 +1,12 @@
 module github.com/pojntfx/html2goapp
 
-go 1.17
+go 1.21
 
 require (
-	github.com/dave/jennifer v1.4.1
-	github.com/maxence-charriere/go-app/v9 v9.0.0
+	github.com/dave/jennifer v1.7.0
+	github.com/maxence-charriere/go-app/v9 v9.8.0
 	github.com/yosssi/gohtml v0.0.0-20201013000340-ee4748c638f4
-	golang.org/x/net v0.0.0-20210929193557-e81a3d93ecf6
+	golang.org/x/net v0.7.0
 	mvdan.cc/gofumpt v0.1.1-0.20210926212236-00a38e9e18de
 )
 
